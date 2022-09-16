@@ -21,32 +21,38 @@ def day_trip_generator():
     res_random = random.choice(restaurants)
     trans_random = random.choice(transportation)
     ent_random = random.choice(entertainment)
-    print(f"Your day trip will compose of: \n{des_random} as your destination, \n{res_random} as your restaurant, \n{trans_random} as your means of transportation, \nand {ent_random} as your entertainment.")
+    print(f"Your day trip will compose of: \nDestination: {des_random} \nRestaurant: {res_random} \nTransportation: {trans_random} \nEntertainment: {ent_random}")
     temp = False
     while temp == False:
-        change = input("Would you like to change anything in your day trip? Yes or No\n")
-        if change == "Yes":
+        change = input("Would you like to change anything in your day trip? Y or N or Everything\n")
+        if change == "Y":
             which_one = input("What would you like to change? Please select one at a time: \nDestinations, Restaurants, Transportation, or Entertainment?\n")
             if which_one == "Destinations":
                 des_random = random.choice(destinations)
-                print("Your new destination has been updated")
+                print(f"Your new destination has been updated to {des_random}")
             if which_one == "Restaurants":
                 res_random = random.choice(restaurants)
-                print("The new restaurant has been updated")
+                print(f"The new restaurant has been updated to {res_random}")
             if which_one == "Transportation":
                 trans_random = random.choice(transportation)
-                print("The new mode of transportation has been updated")
+                print(f"The new mode of transportation has been updated to {trans_random}")
             if which_one == "Entertainment":  
                 ent_random = random.choice(entertainment)
-                print("The new means of entertainment has been updated")     
+                print(f"The new means of entertainment has been updated to {ent_random}") 
+        if change == "Everything":
+            des_random = random.choice(destinations)
+            res_random = random.choice(restaurants)
+            trans_random = random.choice(transportation)
+            ent_random = random.choice(entertainment)
+            print(f"Your new day trip will compose of: \nDestination: {des_random} \nRestaurant: {res_random} \nTransportation: {trans_random} \nEntertainment: {ent_random}")   
         else: 
-            print(f"Your new day trip will compose of: \n{des_random} as your destination, \n{res_random} as your restaurant, \n{trans_random} as your means of transportation, \nand {ent_random} as your entertainment.")
-            confirmation = input("Are you satisfied with your new day trip? Yes or No\n")
-            if confirmation == "Yes":
+            print(f"Your new day trip will compose of: \nDestination: {des_random} \nRestaurant: {res_random} \nTransportation: {trans_random} \nEntertainment: {ent_random}")
+            confirmation = input("Are you satisfied with your new day trip? Y or N\n")
+            if confirmation == "Y":
                 temp = True
             else:
                 temp = False
-
+    print(f"Congratulations on your day trip! Your day trip will compose of: \nDestination: {des_random} \nRestaurant: {res_random} \nTransportation: {trans_random} \nEntertainment: {ent_random}")    
 
 
 
