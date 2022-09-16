@@ -17,3 +17,37 @@ transportation = ["Car", "Train"]
 entertainment = ["Badminton", "Movies"]
 # print(random.choice(destinations))
 def day_trip_generator():
+    des_random = random.choice(destinations)
+    res_random = random.choice(restaurants)
+    trans_random = random.choice(transportation)
+    ent_random = random.choice(entertainment)
+    print(f"Your day trip will compose of: \n{des_random} as your destination, \n{res_random} as your restaurant, \n{trans_random} as your means of transportation, \nand {ent_random} as your entertainment.")
+    temp = False
+    while temp == False:
+        change = input("Would you like to change anything in your day trip? Yes or No\n")
+        if change == "Yes":
+            which_one = input("What would you like to change? Please select one at a time: \nDestinations, Restaurants, Transportation, or Entertainment?\n")
+            if which_one == "Destinations":
+                des_random = random.choice(destinations)
+                print("Your new destination has been updated")
+            if which_one == "Restaurants":
+                res_random = random.choice(restaurants)
+                print("The new restaurant has been updated")
+            if which_one == "Transportation":
+                trans_random = random.choice(transportation)
+                print("The new mode of transportation has been updated")
+            if which_one == "Entertainment":  
+                ent_random = random.choice(entertainment)
+                print("The new means of entertainment has been updated")     
+        else: 
+            print(f"Your new day trip will compose of: \n{des_random} as your destination, \n{res_random} as your restaurant, \n{trans_random} as your means of transportation, \nand {ent_random} as your entertainment.")
+            confirmation = input("Are you satisfied with your new day trip? Yes or No\n")
+            if confirmation == "Yes":
+                temp = True
+            else:
+                temp = False
+
+
+
+
+day_trip_generator()   
