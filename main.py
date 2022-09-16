@@ -11,7 +11,7 @@
 # ●	(10  points): As a user, I want to display my completed trip in the console
 # ●	(5 points): Single Responsibility: As a developer, I want all of my functions to have a Single Responsibility. Remember, each function should do just one thing! 
 import random
-destinations = ["Japan", "Korea"]
+destinations = ["Japan", "Korea", "China", "Taiwan", "Vietnam"]
 restaurants = ["Hotspicydip", "Canes"]
 transportation = ["Car", "Train"]
 entertainment = ["Badminton", "Movies"]
@@ -22,8 +22,9 @@ def randomizer():
     random.choice(transportation),
     random.choice(entertainment)
     ]
+trip1 = randomizer()
 def starting():
-    print(f"Your day trip will compose of: \nDestination: {randomizer()[0]} \nRestaurant: {randomizer()[1]} \nTransportation: {randomizer()[2]} \nEntertainment: {randomizer()[3]}")  
+    print(f"Your day trip will compose of: \nDestination: {trip1[0]} \nRestaurant: {trip1[1]} \nTransportation: {trip1[2]} \nEntertainment: {trip1[3]}")  
 def changes():
     temp = False
     while temp == False:
@@ -32,10 +33,11 @@ def changes():
             which_one = input("What would you like to change? Please select one at a time: \nDestinations, Restaurants, Transportation, or Entertainment?\n")
             choices(which_one)
         if change == "Everything":
-            randomizer()
-            print(f"Your new day trip will compose of: \nDestination: {randomizer()[0]} \nRestaurant: {randomizer()[1]} \nTransportation: {randomizer()[2]} \nEntertainment: {randomizer()[3]}")   
+            global trip1 
+            trip1 = randomizer()
+            print(f"Your new day trip will compose of: \nDestination: {trip1[0]} \nRestaurant: {trip1[1]} \nTransportation: {trip1[2]} \nEntertainment: {trip1[3]}")   
         else: 
-            print(f"Your day trip will compose of: \nDestination: {randomizer()[0]} \nRestaurant: {randomizer()[1]} \nTransportation: {randomizer()[2]} \nEntertainment: {randomizer()[3]}")
+            print(f"Your day trip will compose of: \nDestination: {trip1[0]} \nRestaurant: {trip1[1]} \nTransportation: {trip1[2]} \nEntertainment: {trip1[3]}")
             confirmation = input("Are you satisfied with your day trip? Y or N\n")
             if confirmation == "Y":
                 temp = True
@@ -43,26 +45,26 @@ def changes():
                 temp = False
 def choices(which_one):
     if which_one == "Destinations":
-        randomizer()[0] = random.choice(destinations)
-        print(f"Your new destination has been updated to {randomizer()[0]}")
+        trip1[0] = random.choice(destinations)
+        print(f"Your new destination has been updated to {trip1[0]}")
     if which_one == "Restaurants":
-        randomizer()[1] = random.choice(restaurants)
-        print(f"The new restaurant has been updated to {randomizer()[1]}")
+        trip1[1] = random.choice(restaurants)
+        print(f"The new restaurant has been updated to {trip1[1]}")
     if which_one == "Transportation":
-        randomizer()[2] = random.choice(transportation)
-        print(f"The new mode of transportation has been updated to {randomizer()[2]}")
+        trip1[2] = random.choice(transportation)
+        print(f"The new mode of transportation has been updated to {trip1[2]}")
     if which_one == "Entertainment":  
-        randomizer()[3] = random.choice(entertainment)
-        print(f"The new means of entertainment has been updated to {randomizer()[3]}") 
+        trip1[3] = random.choice(entertainment)
+        print(f"The new means of entertainment has been updated to {trip1[3]}") 
 
 def final():
-    print(f"Congratulations on your day trip! Your day trip will compose of: \nDestination: {randomizer()[0]} \nRestaurant: {randomizer()[1]} \nTransportation: {randomizer()[2]} \nEntertainment: {randomizer()[3]}")        
+    print(f"Congratulations on your day trip! Your day trip will compose of: \nDestination: {trip1[0]} \nRestaurant: {trip1[1]} \nTransportation: {trip1[2]} \nEntertainment: {trip1[3]}")        
 
 
 
 
 def day_trip_generator():
-    randomizer()
+    trip1 = randomizer()
     starting()
     changes()
     final()
